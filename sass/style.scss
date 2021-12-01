@@ -1,0 +1,309 @@
+@use "constants";
+
+// styles globals
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: 0;
+}
+
+//------- GRID STYLE----------
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: constants.$primary-color;
+  font-family: constants.$font;
+  color: constants.$blackOrWhite;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.column {
+  display: grid;
+  gap: 3.5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+// ------- Card Style --------
+
+.row1,
+.row2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: constants.$secondary-color;
+  border-radius: 10px;
+  height: 11rem;
+}
+
+.row1:hover,
+.row2:hover {
+  background-color: constants.$Desaturated_blue;
+}
+.row1::before,
+.row2::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  height: 50px;
+  width: 100%;
+  top: -2rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.work::before {
+  background-color: constants.$color-work;
+  background-image: url("../images/icon-work.svg");
+  background-repeat: no-repeat;
+  background-size: 55px;
+  background-position: 85% -4px;
+}
+.play::before {
+  background-color: constants.$color-play;
+  background-image: url("../images/icon-play.svg");
+  background-repeat: no-repeat;
+  background-size: 55px;
+  background-position: 85% -4px;
+}
+.social::before {
+  background-color: constants.$color-social;
+  background-image: url("../images/icon-social.svg");
+  background-repeat: no-repeat;
+  background-size: 55px;
+  background-position: 85% -4px;
+}
+.soft_care::before {
+  background: constants.$color-self_care;
+  background-image: url("../images/icon-self-care.svg");
+  background-repeat: no-repeat;
+  background-size: 55px;
+  background-position: 85% -10px;
+}
+.study::before {
+  background: constants.$color-study;
+  background-image: url("../images/icon-study.svg");
+  background-repeat: no-repeat;
+  background-size: 55px;
+  background-position: 88% -4px;
+}
+.exercise::before {
+  background: constants.$color-exercise;
+  background-image: url("../images/icon-exercise.svg");
+  background-repeat: no-repeat;
+  background-size: 55px;
+  background-position: 85% -4px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  h1 {
+    font-size: constants.$font-title;
+  }
+  i {
+    font-size: constants.$font-title;
+  }
+}
+.bottom {
+  height: 100%;
+  h1 {
+    font-weight: 300;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    color: constants.$Pale_Blue;
+    font-weight: 400;
+    font-size: 15px;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 1rem;
+}
+
+// ------- Card User Styles ------------
+.column1 {
+  position: relative;
+}
+.topOne {
+  position: relative;
+  background-color: constants.$terciary-color;
+  height: 50%;
+  width: 14rem;
+  img {
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+    border: 3px solid constants.$blackOrWhite;
+    border-radius: 100%;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  h1 {
+    font-size: 2rem;
+    font-weight: 100;
+    margin-left: 1rem;
+  }
+  p {
+    margin-left: 1rem;
+    color: constants.$Pale_Blue;
+    font-weight: 400;
+  }
+}
+
+.bottomOne {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: constants.$secondary-color;
+  height: 42%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.topOne::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 40px;
+  top: -2.1rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: constants.$terciary-color;
+}
+
+.topOne::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4rem;
+  bottom: -3.5rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: constants.$terciary-color;
+  z-index: 10;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-left: 1rem;
+  height: 80%;
+  li {
+    font-size: 1.2rem;
+    font-weight: 400;
+    cursor: pointer;
+    color: constants.$Desaturated_blue;
+  }
+  li:hover {
+    color: constants.$blackOrWhite;
+  }
+}
+
+// --------- Media Queries ----------
+
+@media screen and (max-width: 740px) {
+  body {
+    align-items: flex-start;
+  }
+  section {
+    grid-template-columns: none;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 3rem;
+    width: 80vw;
+  }
+
+  // TOP SECTION
+  .column1 {
+    height: 22rem;
+  }
+  .topOne {
+    position: absolute;
+    top: 4rem;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 11;
+  }
+  .topOne::before,
+  .topOne::after {
+    display: none;
+  }
+  .bottomOne {
+    flex-direction: unset;
+    justify-content: unset;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+  }
+  ul {
+    flex-direction: row;
+    margin-left: 0;
+    margin-top: 1rem;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  ul li {
+    font-size: 1.43rem;
+  }
+
+  .bottom {
+    margin: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    p {
+      width: 100%;
+      margin-right: 1rem;
+      text-align: end;
+    }
+    h1 {
+      font-size: 2.4rem;
+    }
+  }
+  .top {
+    margin: 0;
+    h1,
+    i {
+      font-size: 1.5rem;
+    }
+  }
+
+  .row1,
+  .row2 {
+    height: 8rem;
+  }
+
+  .row1::before,
+  .row2::before {
+    top: -2.5rem;
+    background-size: 70px;
+  }
+}
