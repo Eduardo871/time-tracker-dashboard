@@ -4,6 +4,6 @@
 
 ## Welcome! 👋
 
-Thanks for checking out this front-end coding challenge.
+Practice project that helps me improve my skills as a web programmer. 
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+Link of the deployed project: Eduardo871.github.io/time-tracker-dashboard/.
